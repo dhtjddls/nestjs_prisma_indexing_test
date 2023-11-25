@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model MOCK_DATA {
+  id         Int     @id @unique(map: "MOCK_DATA_UN") @default(autoincrement())
+  first_name String? @db.VarChar(50)
+  last_name  String? @db.VarChar(50)
+  email      String? @db.VarChar(50)
+  gender     String? @db.VarChar(50)
+  ip_address String? @db.VarChar(50)
+
+  @@index([email])
+}
